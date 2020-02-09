@@ -1,0 +1,2 @@
+table_add ingress.ipv4_forward_table ipv4_forward 10.0.1.1/32 => 08:00:00:00:01:00 1
+table_add ingress.ipv4_forward_table ipv4_forward 10.0.2.2/32 => 08:00:00:00:02:00 2
