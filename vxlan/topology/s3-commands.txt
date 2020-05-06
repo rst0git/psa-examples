@@ -1,0 +1,12 @@
+# ipv4_forward_table: <ipv4.dst_addr: lpm> <vlan_id: exact> => ethDstAddress port
+table_add ingress.ipv4_forward_table ipv4_forward 10.0.1.1/32 1 => 08:00:00:00:01:00 1
+table_add ingress.ipv4_forward_table ipv4_forward 10.0.2.2/32 1 => 08:00:00:00:02:00 1
+
+table_add ingress.ipv4_forward_table ipv4_forward 10.0.3.3/32 2 => 08:00:00:00:03:00 1
+table_add ingress.ipv4_forward_table ipv4_forward 10.0.4.4/32 2 => 08:00:00:00:04:00 1
+
+table_add ingress.ipv4_forward_table ipv4_forward 10.0.5.5/32 1 => 08:00:00:00:05:00 2
+table_add ingress.ipv4_forward_table ipv4_forward 10.0.6.6/32 1 => 08:00:00:00:06:00 2
+
+table_add ingress.ipv4_forward_table ipv4_forward 10.0.7.7/32 2 => 08:00:00:00:07:00 2
+table_add ingress.ipv4_forward_table ipv4_forward 10.0.8.8/32 2 => 08:00:00:00:08:00 2
