@@ -115,13 +115,12 @@ control ingress(inout headers_t hdr,
     apply {
 
         if (hdr.ipv4.isValid()) {
-            if (istd.max_recirculations > 0) {
-                hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
+            if (istd.packet_path == PSA_PacketPath_t.NORMAL) {
+                hdr.ipv4.ttl = 6;
                 send_to_port(ostd, PSA_PORT_RECIRCULATE);
             } else {
                 ipv4_forward_table.apply();
             }
-
         }
     }
 }

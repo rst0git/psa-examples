@@ -115,11 +115,11 @@ control ingress(inout headers_t hdr,
     apply {
         if (hdr.ipv4.isValid()) {
             ipv4_forward_table.apply();
-
-            if (istd.max_resubmissions > 0)
+            if (istd.packet_path == PSA_PacketPath_t.NORMAL) {
                 ostd.resubmit = true;
-            else
-                hdr.ipv4.ttl = istd.max_resubmissions;
+            } else if (istd.packet_path == PSA_PacketPath_t.RESUBMIT) {
+                hdr.ipv4.ttl = 5;
+            }
         }
     }
 }
