@@ -127,7 +127,8 @@ control ingress(inout headers_t hdr,
 
     action ipv4_forward(EthernetAddress_t dst_addr, PortId_t port) {
         hdr.ethernet.dst_addr = dst_addr;
-        hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
+        // FIXME: psa_switch doesn't support InternetChecksum yet
+        // hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
         send_to_port(ostd, port);
     }
 
