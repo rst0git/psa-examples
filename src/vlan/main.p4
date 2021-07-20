@@ -1,6 +1,6 @@
 /* -*- P4_16 -*- */
 #include <core.p4>
-#include <psa.p4>
+#include <bmv2/psa.p4>
 
 typedef bit<48> EthernetAddress_t;
 typedef bit<12> vlan_id_t;
