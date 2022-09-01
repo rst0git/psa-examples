@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 import os
 import json
 import subprocess
@@ -26,7 +26,7 @@ def configure_switch(**switch_args):
             P4Switch.__init__(self, *opts, **kwargs)
 
         def describe(self):
-            print(("%s -> Thrift port: %d" % (self.name, self.thrift_port)))
+            print("%s -> Thrift port: %d" % (self.name, self.thrift_port))
 
     return ConfiguredP4Switch
 
